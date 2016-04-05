@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_large"
+            android:fontFamily="sans-serif-thin"
+            tools:text="Step 1 of 4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_gravity="center"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_step"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center"
+            android:layout_alignLeft="@+id/tv_step"
+            android:layout_alignRight="@+id/tv_step"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/tv_step_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/tv_step"
+            android:textSize="@dimen/text_medium"
+            android:layout_margin="@dimen/margin_medium"
+            android:paddingLeft="@dimen/padding_default"
+            android:paddingRight="@dimen/padding_default"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:lines="2"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="@dimen/padding_large"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_large" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/button_margin"
+        android:layout_marginRight="@dimen/button_margin"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:text="@string/cancel"
+        android:textSize="@dimen/text_medium"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:gravity="center"/>
+
+</LinearLayout>
