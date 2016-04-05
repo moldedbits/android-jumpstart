@@ -35,3 +35,4 @@ Everytime a client project begins developer should be able to fork it, change re
 
 ###Other Todo's
   * Test this
+  * Add proguard rules and enable it in release
