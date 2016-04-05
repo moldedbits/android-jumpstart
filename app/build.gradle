@@ -16,6 +16,10 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
+    // todo change API URLs here
+    final API_URL_DEV = "https://www.google.com";
+    final API_URL_PROD = "https://www.google.com";
+
     defaultConfig {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
@@ -25,7 +29,24 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField 'String', 'API_URL', "\"" + API_URL_DEV + "\""
+        }
+
+        debug_prod {
+            minifyEnabled false
+            buildConfigField 'String', 'API_URL', "\"" + API_URL_PROD + "\""
+        }
+
         release {
+            buildConfigField 'String', 'API_URL', "\"" + API_URL_DEV + "\""
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release_prod {
+            buildConfigField 'String', 'API_URL', "\"" + API_URL_PROD + "\""
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
