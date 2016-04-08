@@ -8,4 +8,6 @@
     <string name="cancel">Cancel</string>
     <string name="ok">Ok</string>
     <string name="please_wait">Please wait</string>
+    <string name="internet_slow_or_disconnected">No internet available or very slow.</string>
+    <string name="something_went_wrong">Something went wrong.</string>
 </resources>
