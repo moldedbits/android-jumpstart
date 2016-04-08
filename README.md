@@ -35,4 +35,10 @@ Everytime a client project begins developer should be able to fork it, change re
 
 ###Other Todo's
   * Test this
-  * Add proguard rules and enable it in release
+  * Create retrofit client
+
+### SDK Todos
+  * Recycler View Base Adapter
+  * Circular image view
+  * Fragment Viewpager Adapter for tabs
+  * DateUtil
