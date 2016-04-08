@@ -28,6 +28,16 @@ android {
         versionName "1.0"
     }
 
+    signingConfigs {
+        // todo change as per app config
+        release_prod {
+            storeFile file("../key.keystore")
+            storePassword "password"
+            keyAlias "alias"
+            keyPassword "password"
+        }
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -60,9 +70,9 @@ dependencies {
     compile 'com.android.support:design:23.2.1'
 
     // Use Retrofit for API interaction
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
-    compile 'com.squareup.okhttp:logging-interceptor:2.7.0'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
 
     // design support
     compile 'com.android.support:design:23.2.1'

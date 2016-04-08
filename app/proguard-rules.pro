@@ -28,15 +28,6 @@
     @butterknife.* <methods>;
 }
 
-## Okio
--dontwarn java.nio.file.**
--dontwarn sun.misc.Unsafe
--dontwarn org.codehaus.mojo.**
-
-## Saripaar - validation
--keep class com.mobsandgeeks.saripaar.** {*;}
--keep @com.mobsandgeeks.saripaar.annotation.ValidateUsing class * {*;}
-
 ## Models
 -keepclassmembers class com.moldedbits.android.model.** { *; }
 
