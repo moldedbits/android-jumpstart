@@ -30,35 +30,53 @@ android {
 
     signingConfigs {
         // todo change as per app config
-        release_prod {
-            storeFile file("../key.keystore")
-            storePassword "password"
-            keyAlias "alias"
-            keyPassword "password"
+        debugProd {
+            storeFile file("../jumpstart.keystore")
+            storePassword "moldedbits"
+            keyAlias "jumpstart"
+            keyPassword "moldedbits"
+        }
+        release {
+            storeFile file("../jumpstart.keystore")
+            storePassword "moldedbits"
+            keyAlias "jumpstart"
+            keyPassword "moldedbits"
+        }
+        releaseProd {
+            storeFile file("../jumpstart.keystore")
+            storePassword "moldedbits"
+            keyAlias "jumpstart"
+            keyPassword "moldedbits"
         }
     }
 
     buildTypes {
         debug {
+            applicationIdSuffix '.debug'
             minifyEnabled false
             buildConfigField 'String', 'API_URL', "\"" + API_URL_DEV + "\""
         }
 
-        debug_prod {
+        debugProd {
+            applicationIdSuffix '.debug'
             minifyEnabled false
             buildConfigField 'String', 'API_URL', "\"" + API_URL_PROD + "\""
+            signingConfig signingConfigs.debugProd
         }
 
         release {
+            applicationIdSuffix '.release'
             buildConfigField 'String', 'API_URL', "\"" + API_URL_DEV + "\""
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
 
-        release_prod {
+        releaseProd {
             buildConfigField 'String', 'API_URL', "\"" + API_URL_PROD + "\""
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseProd
         }
     }
 }

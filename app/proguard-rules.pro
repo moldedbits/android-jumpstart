@@ -10,8 +10,8 @@
 # Add any project specific keep options here:
 
 ## Retrofit
--dontwarn retrofit.**
--keep class retrofit.** { *; }
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
 -keepattributes Signature
 -keepattributes Exceptions
 
@@ -41,3 +41,8 @@
 ## crashlytics
 -keep class com.crashlytics.** { *; }
 -dontwarn com.crashlytics.**
+
+## Okio
+-dontwarn java.nio.file.**
+-dontwarn sun.misc.Unsafe
+-dontwarn org.codehaus.mojo.**
