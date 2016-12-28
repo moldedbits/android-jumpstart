@@ -1,31 +1,21 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        // https://bitbucket.org/hvisser/android-apt
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
-    }
-}
-
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
 
-    // todo change API URLs here
-    final API_URL_DEV = "https://www.google.com";
-    final API_URL_PROD = "https://www.google.com";
+    final API_URL_DEV = "https://bookstore-mb.herokuapp.com/";
+    final API_URL_PROD = "https://bookstore-mb.herokuapp.com/";
 
     defaultConfig {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
     signingConfigs {
@@ -84,25 +74,53 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
 
     // Use Retrofit for API interaction
-    compile 'com.squareup.retrofit2:retrofit:2.0.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.0'
 
     // design support
-    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:design:25.1.0'
+
+    // Kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Lombok
     // https://projectlombok.org/setup/android.html
     provided 'org.projectlombok:lombok:1.12.6'
-    apt "org.projectlombok:lombok:1.12.6"
+    annotationProcessor "org.projectlombok:lombok:1.12.6"
 
     // Timber for logging
     compile 'com.jakewharton.timber:timber:4.1.0'
 
     // Butterknife for view injection
     compile 'com.jakewharton:butterknife:7.0.1'
+
+    // Dagger 2
+    // Dagger 2 dependencies
+    compile 'com.google.dagger:dagger:2.8'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    //Tests
+    // Required -- JUnit 4 framework
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support:support-annotations:25.1.0'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+
+    // Optional -- Mockito framework
+    testCompile 'org.mockito:mockito-core:1.10.19'
+
+    // Optional -- UI testing with Espresso
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestCompile 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
+
+    // RX Android
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 }

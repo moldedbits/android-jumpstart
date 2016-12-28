@@ -137,8 +137,4 @@ public class ThemedInfoDialog extends DialogFragment {
     public void onClickCancel() {
         dismiss();
     }
-
-    public void setOkListener(View.OnClickListener onClickListener) {
-        okListener = onClickListener;
-    }
 }
