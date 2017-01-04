@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.moldedbits.android.api.APIService;
 import com.moldedbits.android.dialogs.LoadingDialog;
 import com.moldedbits.android.utils.fragment_transaction_handler.FragmentTransactionHandler;
-import com.moldedbits.android.R;
+
+import javax.inject.Inject;
 
 
 /**
@@ -18,6 +20,9 @@ import com.moldedbits.android.R;
 // TODO: 05/04/16 Add Loader
 public class BaseActivity extends AppCompatActivity {
 
+    @Inject
+    APIService apiService;
+
     private FrameLayout mContentFrame;
     public FragmentTransactionHandler handler;
 
@@ -25,6 +30,8 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_base);
+
+        BaseApplication.getInstance().getApiComponent().inject(this);
 
         mContentFrame = (FrameLayout) findViewById(R.id.base_container);
         handler = new FragmentTransactionHandler();

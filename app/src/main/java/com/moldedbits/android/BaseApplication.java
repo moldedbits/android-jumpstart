@@ -2,6 +2,7 @@ package com.moldedbits.android;
 
 import android.app.Application;
 
+import lombok.Getter;
 import timber.log.Timber;
 
 /**
@@ -12,6 +13,9 @@ public class BaseApplication extends Application {
 
     private static BaseApplication sInstance;
 
+    @Getter
+    protected APIComponent apiComponent;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -20,6 +24,8 @@ public class BaseApplication extends Application {
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
+
+        apiComponent = DaggerAPIComponent.create();
     }
 
     public static BaseApplication getInstance() {
