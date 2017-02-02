@@ -20,19 +20,18 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
 
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
-    private static final String SHOW_CANCEL_BUTTON = "showCancelButton";
+    public static final String SHOW_CANCEL_BUTTON = "showCancelButton";
     protected boolean mbutton = true;
 
-    private TextView mTvTitle;
-    private TextView mTvTitleDesc;
-    private Button mBtnCancel;
+    private TextView tvTitle;
+    private TextView tvTitleDesc;
 
     @Getter
     @Setter
     private View.OnClickListener cancelListener;
 
     public static LoadingDialog newInstance(String title, String description, boolean button) {
-        LoadingDialog loadingDialog = new LoadingDialog();
+        final LoadingDialog loadingDialog = new LoadingDialog();
         Bundle bundle = new Bundle();
         bundle.putString(TITLE, title);
         bundle.putString(DESCRIPTION, description);
@@ -46,24 +45,26 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.loading_dialog, container, true);
 
-        mTvTitle = (TextView) view.findViewById(R.id.tv_step);
-        mTvTitleDesc = (TextView) view.findViewById(R.id.tv_step_name);
-        mBtnCancel = (Button) view.findViewById(R.id.btn_cancel);
+        tvTitle = (TextView) view.findViewById(R.id.tv_step);
+        tvTitleDesc = (TextView) view.findViewById(R.id.tv_step_name);
+        Button btnCancel = (Button) view.findViewById(R.id.btn_cancel);
 
-        mBtnCancel.setOnClickListener((cancelListener));
+        btnCancel.setOnClickListener((cancelListener));
 
 
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        WindowManager.LayoutParams params = getDialog().getWindow().getAttributes();
-        params.height = WindowManager.LayoutParams.MATCH_PARENT;
-        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        if(getDialog().getWindow() != null) {
+            WindowManager.LayoutParams params = getDialog().getWindow().getAttributes();
+            params.height = WindowManager.LayoutParams.MATCH_PARENT;
+            params.width = WindowManager.LayoutParams.MATCH_PARENT;
 
-        getDialog().getWindow().setAttributes(params);
+            getDialog().getWindow().setAttributes(params);
+        }
 
         mbutton = getArguments().getBoolean(SHOW_CANCEL_BUTTON);
         if (!mbutton) {
-            mBtnCancel.setVisibility(View.GONE);
+            btnCancel.setVisibility(View.GONE);
         }
 
         setCancelable(false);
@@ -73,9 +74,9 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
     }
 
     public void updateInfo(String step, String stepInfo) {
-        if (mTvTitle != null) {
-            mTvTitle.setText(step);
-            mTvTitleDesc.setText(stepInfo);
+        if (tvTitle != null) {
+            tvTitle.setText(step);
+            tvTitleDesc.setText(stepInfo);
         }
     }
 }

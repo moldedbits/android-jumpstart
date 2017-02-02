@@ -6,14 +6,14 @@ import android.content.SharedPreferences;
 import com.moldedbits.android.BaseApplication;
 
 /**
- *
- * Created by abhishek on 18/03/15.
+ * Created by abhishek
+ * on 18/03/15.
  */
 public class LocalStorage {
 
-    private SharedPreferences preferences;
+    private final SharedPreferences preferences;
 
-    private static LocalStorage instance = new LocalStorage();
+    private static final LocalStorage instance = new LocalStorage();
 
     public static LocalStorage getInstance() {
         return instance;
@@ -46,6 +46,18 @@ public class LocalStorage {
         editor.apply();
     }
 
+    public void storeData(String key, boolean value) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(key, value);
+        editor.apply();
+    }
+
+    public void storeData(String key, float value) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putFloat(key, value);
+        editor.apply();
+    }
+
     public String getString(String key) {
         return preferences.getString(key, null);
     }
@@ -60,18 +72,6 @@ public class LocalStorage {
 
     public int getInt(String key) {
         return preferences.getInt(key, 0);
-    }
-
-    public void storeData(String key, boolean value) {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(key, value);
-        editor.apply();
-    }
-
-    public void storeData(String key, float value) {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putFloat(key, value);
-        editor.apply();
     }
 
     public boolean getBoolean(String key, boolean defValue) {

@@ -20,18 +20,18 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class BaseActivityTest {
 
     @Rule
-    public ActivityTestRule<BaseDrawerActivity> mTestRule =
+    public ActivityTestRule<BaseDrawerActivity> testRule =
             new ActivityTestRule<>(BaseDrawerActivity.class, true, false);
 
     @Before
     public void setup() {
         ((DebugBaseApplication) DebugBaseApplication.getInstance()).enableMockMode();
-        mTestRule.launchActivity(null);
+        testRule.launchActivity(null);
     }
 
     @After
     public void tearDown() {
-        mTestRule.getActivity().finish();
+        testRule.getActivity().finish();
     }
 
     @Test

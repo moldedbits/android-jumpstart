@@ -7,12 +7,12 @@ import android.view.View;
 import com.moldedbits.android.api.ResponseCallback;
 import com.moldedbits.android.dialogs.LoadingDialog;
 import com.moldedbits.android.utils.LoaderHandler;
-import com.moldedbits.android.utils.fragment_transaction_handler.FragmentTransactionHandler;
+import com.moldedbits.android.utils.fragmenttransactionhandler.FragmentTransactionHandler;
 
 public abstract class BaseFragment extends Fragment
-        implements android.support.v4.app.LoaderManager.LoaderCallbacks<Object>{
+        implements android.support.v4.app.LoaderManager.LoaderCallbacks<Object> {
 
-    public FragmentTransactionHandler handler;
+    protected FragmentTransactionHandler handler;
 
     public abstract void requestApi(ResponseCallback responseCallback);
 
@@ -63,21 +63,21 @@ public abstract class BaseFragment extends Fragment
         return handler;
     }
 
-    private LoadingDialog mLoadingDialog;
+    private LoadingDialog loadingDialog;
 
     protected void cancelLoadingDialog() {
-        if (mLoadingDialog != null
-                && mLoadingDialog.getDialog() != null
-                && mLoadingDialog.getDialog().isShowing()) {
-            mLoadingDialog.getDialog().dismiss();
+        if (loadingDialog != null
+                && loadingDialog.getDialog() != null
+                && loadingDialog.getDialog().isShowing()) {
+            loadingDialog.getDialog().dismiss();
         }
     }
 
     protected void showLoadingDialog(int stringResId) {
-        mLoadingDialog = LoadingDialog.newInstance(getString(stringResId),
+        loadingDialog = LoadingDialog.newInstance(getString(stringResId),
                 getString(R.string.please_wait), true);
-        mLoadingDialog.show(getActivity().getSupportFragmentManager(), null);
-        mLoadingDialog.setCancelListener(new View.OnClickListener() {
+        loadingDialog.show(getActivity().getSupportFragmentManager(), null);
+        loadingDialog.setCancelListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 cancelLoadingDialog();

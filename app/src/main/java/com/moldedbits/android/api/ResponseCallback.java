@@ -1,9 +1,5 @@
 package com.moldedbits.android.api;
 
-/**
- *
- * Created by abhishek on 08/04/16.
- */
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
@@ -19,22 +15,24 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Created by abhishek
+ * on 08/04/16.
+ */
+
 public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
 
-    private Activity mActivity;
+    private final Activity activity;
 
     public ResponseCallback(Activity activity) {
-        mActivity = activity;
+        this.activity = activity;
     }
 
     public abstract void onSuccess(Call<BaseResponse<T>> call, BaseResponse<T> response);
 
     public abstract void onError(ApiError error);
 
-    public abstract void onFailure(Throwable t);
-
     public abstract void onRetry(Call<BaseResponse<T>> call);
-
 
     @Override
     public void onResponse(Call<BaseResponse<T>> call, Response<BaseResponse<T>> response) {
@@ -63,34 +61,37 @@ public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
         showSnackBar(false, message, call);
     }
 
+
+    public abstract void onFailure(Throwable throwable);
+
     @Override
-    public void onFailure(Call<BaseResponse<T>> call, Throwable t) {
-        if (t != null) {
-            if (t instanceof IOException) {
-                showSnackBar(true, mActivity.getString(R.string.internet_slow_or_disconnected),
+    public void onFailure(Call<BaseResponse<T>> call, Throwable throwable) {
+        if (throwable != null) {
+            if (throwable instanceof IOException) {
+                showSnackBar(true, activity.getString(R.string.internet_slow_or_disconnected),
                         call);
             } else {
-                showSnackBar(false, t.getMessage(), call);
+                showSnackBar(false, throwable.getMessage(), call);
             }
-            onFailure(t);
+            onFailure(throwable);
         }
     }
 
     private ApiError getMockError() {
         ApiError apiError = new ApiError();
-        apiError.setErrors(mActivity.getString(R.string.something_went_wrong));
+        apiError.setErrors(activity.getString(R.string.something_went_wrong));
         apiError.setSuccess(BaseResponse.Status.FAILURE);
         return apiError;
     }
 
     private void showSnackBar(boolean isClickable, String message,
                               final Call<BaseResponse<T>> call) {
-        Snackbar snackbar = Snackbar.make(mActivity.findViewById(android.R.id.content), message,
+        Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), message,
                 Snackbar.LENGTH_LONG);
         if (isClickable) {
             snackbar.setAction("Retry", new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     if (call != null) {
                         onRetry(call);
                     }

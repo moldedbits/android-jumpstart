@@ -13,32 +13,35 @@ import retrofit2.Call;
 
 public abstract class LoaderHandler<T> extends Loader<T> {
 
-    Activity mActivity;
+    private final Activity activity;
 
     @Getter
     ResponseCallback<T> callback;
 
-    T data;
+    private T data;
 
     public abstract T getData();
 
-    public LoaderHandler(Activity activity) {
+    protected LoaderHandler(Activity activity) {
         super(activity);
-        mActivity = activity;
-        callback = new ResponseCallback<T>(mActivity) {
+        this.activity = activity;
+        callback = new ResponseCallback<T>(LoaderHandler.this.activity) {
             @Override
             public void onSuccess(Call<BaseResponse<T>> call, BaseResponse<T> response) {
                 data = response.getResult();
             }
 
             @Override
-            public void onError(ApiError error) {}
+            public void onError(ApiError error) {
+            }
 
             @Override
-            public void onFailure(Throwable t) {}
+            public void onFailure(Throwable throwable) {
+            }
 
             @Override
-            public void onRetry(Call<BaseResponse<T>> call) {}
+            public void onRetry(Call<BaseResponse<T>> call) {
+            }
         };
     }
 

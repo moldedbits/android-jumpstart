@@ -1,4 +1,4 @@
-package com.moldedbits.android.utils.fragment_transaction_handler;
+package com.moldedbits.android.utils.fragmenttransactionhandler;
 
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
@@ -7,7 +7,7 @@ import com.moldedbits.android.dialogs.ThemedInfoDialog;
 
 public class FragmentTransactionHandler extends PauseHandler {
 
-    protected FragmentActivity activity;
+    private FragmentActivity activity;
     public static final int LOADING_DIALOG_DISMISS_MSG = 100002;
     public static final int SHOW_THEMED_INFO_DIALOG = 100003;
 
@@ -47,6 +47,9 @@ public class FragmentTransactionHandler extends PauseHandler {
                 case SHOW_THEMED_INFO_DIALOG:
                     ThemedInfoDialog dialog = (ThemedInfoDialog) message.obj;
                     dialog.show(activity.getSupportFragmentManager(), "themedInfoDialog");
+                    break;
+                default:
+                    // do nothing
                     break;
             }
         }

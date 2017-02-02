@@ -1,4 +1,4 @@
-package com.moldedbits.android.utils.fragment_transaction_handler;
+package com.moldedbits.android.utils.fragmenttransactionhandler;
 
 
 import android.os.Handler;
@@ -16,7 +16,7 @@ public abstract class PauseHandler extends Handler {
     /**
      * Message Queue Buffer
      */
-    final Vector<Message> messageQueueBuffer = new Vector<Message>();
+    private final Vector<Message> messageQueueBuffer = new Vector<>();
 
     /**
      * Flag indicating the pause state
@@ -26,7 +26,7 @@ public abstract class PauseHandler extends Handler {
     /**
      * Resume the handler
      */
-    final public void resume() {
+    public final void resume() {
         paused = false;
 
         while (messageQueueBuffer.size() > 0) {
@@ -39,7 +39,7 @@ public abstract class PauseHandler extends Handler {
     /**
      * Pause the handler
      */
-    final public void pause() {
+    public final void pause() {
         paused = true;
     }
 
@@ -67,7 +67,7 @@ public abstract class PauseHandler extends Handler {
      */
 
     @Override
-    final public void handleMessage(Message msg) {
+    public final void handleMessage(Message msg) {
         if (paused) {
             if (storeMessage(msg)) {
                 Message msgCopy = new Message();

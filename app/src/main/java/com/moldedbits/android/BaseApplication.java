@@ -6,29 +6,29 @@ import lombok.Getter;
 import timber.log.Timber;
 
 /**
- *
- * Created by abhishek on 05/04/16.
+ * Created by abhishek
+ * on 05/04/16.
  */
 public class BaseApplication extends Application {
 
-    private static BaseApplication sInstance;
+    private static BaseApplication instance;
 
     @Getter
-    protected APIComponent apiComponent;
+    protected ApiComponent apiComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        sInstance = this;
+        instance = this;
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
 
-        apiComponent = DaggerAPIComponent.create();
+        apiComponent = DaggerApiComponent.create();
     }
 
     public static BaseApplication getInstance() {
-        return sInstance;
+        return instance;
     }
 }

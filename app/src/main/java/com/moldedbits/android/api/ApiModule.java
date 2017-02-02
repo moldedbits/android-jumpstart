@@ -25,20 +25,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import rx.schedulers.Schedulers;
 
 /**
- *
- * Created by abhishek on 05/04/16.
+ * Created by abhishek
+ * on 05/04/16.
  */
 @Module
-public class APIModule {
+public class ApiModule {
 
     @Provides
     @Singleton
-    APIService providesAPIService() {
+    ApiService providesApiService() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         // TODO: 08/04/16 might want to remove this in prod
         builder.hostnameVerifier(new HostnameVerifier() {
             @Override
-            public boolean verify(String s, SSLSession sslSession) {
+            public boolean verify(String str, SSLSession sslSession) {
                 return true;
             }
         });
@@ -82,6 +82,6 @@ public class APIModule {
                 .addCallAdapterFactory(rxAdapter)
                 .build();
 
-        return retrofit.create(APIService.class);
+        return retrofit.create(ApiService.class);
     }
 }

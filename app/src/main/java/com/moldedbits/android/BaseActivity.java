@@ -6,25 +6,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.moldedbits.android.api.APIService;
+import com.moldedbits.android.api.ApiService;
 import com.moldedbits.android.dialogs.LoadingDialog;
-import com.moldedbits.android.utils.fragment_transaction_handler.FragmentTransactionHandler;
+import com.moldedbits.android.utils.fragmenttransactionhandler.FragmentTransactionHandler;
 
 import javax.inject.Inject;
 
 
 /**
- *
- * Created by shishank on 08/01/16.
+ * Created by shishank
+ * on 08/01/16.
  */
 // TODO: 05/04/16 Add Loader
 public class BaseActivity extends AppCompatActivity {
 
     @Inject
-    APIService apiService;
+    ApiService apiService;
 
-    private FrameLayout mContentFrame;
-    public FragmentTransactionHandler handler;
+    private FrameLayout contentFrame;
+    protected FragmentTransactionHandler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class BaseActivity extends AppCompatActivity {
 
         BaseApplication.getInstance().getApiComponent().inject(this);
 
-        mContentFrame = (FrameLayout) findViewById(R.id.base_container);
+        contentFrame = (FrameLayout) findViewById(R.id.base_container);
         handler = new FragmentTransactionHandler();
     }
 
@@ -56,13 +56,13 @@ public class BaseActivity extends AppCompatActivity {
         handler.setActivity(null);
     }
 
-    public FragmentTransactionHandler getHandler() {
+    protected FragmentTransactionHandler getHandler() {
         return handler;
     }
 
     @Override
-    public void setContentView(int layoutResID) {
-        getLayoutInflater().inflate(layoutResID, mContentFrame, true);
+    public void setContentView(int layoutResId) {
+        getLayoutInflater().inflate(layoutResId, contentFrame, true);
     }
 
     @Override
@@ -70,11 +70,10 @@ public class BaseActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
-
                 return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public void dismissLoadingDialogWithHandler(LoadingDialog dialog) {
