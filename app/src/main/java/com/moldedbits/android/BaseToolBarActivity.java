@@ -6,7 +6,7 @@ import android.widget.FrameLayout;
 
 public class BaseToolBarActivity extends BaseActivity {
 
-    private FrameLayout mContentFrame;
+    private FrameLayout contentFrame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +19,11 @@ public class BaseToolBarActivity extends BaseActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mContentFrame = (FrameLayout) findViewById(R.id.activity_content);
+        contentFrame = (FrameLayout) findViewById(R.id.activity_content);
     }
 
     @Override
     public void setContentView(int layoutResID) {
-        getLayoutInflater().inflate(layoutResID, mContentFrame, true);
+        getLayoutInflater().inflate(layoutResID, contentFrame, true);
     }
 }

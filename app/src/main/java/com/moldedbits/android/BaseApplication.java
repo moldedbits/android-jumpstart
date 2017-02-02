@@ -10,7 +10,7 @@ import timber.log.Timber;
  */
 public class BaseApplication extends Application {
 
-    private static BaseApplication sInstance;
+    private static BaseApplication instance;
 
     @Getter
     protected APIComponent apiComponent;
@@ -18,7 +18,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        sInstance = this;
+        instance = this;
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
@@ -28,6 +28,6 @@ public class BaseApplication extends Application {
     }
 
     public static BaseApplication getInstance() {
-        return sInstance;
+        return instance;
     }
 }

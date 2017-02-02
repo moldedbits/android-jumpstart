@@ -22,7 +22,7 @@ public class BaseActivity extends AppCompatActivity {
     @Inject
     APIService apiService;
 
-    private FrameLayout mContentFrame;
+    private FrameLayout contentFrame;
     public FragmentTransactionHandler handler;
 
     @Override
@@ -32,7 +32,7 @@ public class BaseActivity extends AppCompatActivity {
 
         BaseApplication.getInstance().getApiComponent().inject(this);
 
-        mContentFrame = (FrameLayout) findViewById(R.id.base_container);
+        contentFrame = (FrameLayout) findViewById(R.id.base_container);
         handler = new FragmentTransactionHandler();
     }
 
@@ -61,7 +61,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public void setContentView(int layoutResID) {
-        getLayoutInflater().inflate(layoutResID, mContentFrame, true);
+        getLayoutInflater().inflate(layoutResID, contentFrame, true);
     }
 
     @Override

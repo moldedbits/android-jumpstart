@@ -23,9 +23,9 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
     private static final String SHOW_CANCEL_BUTTON = "showCancelButton";
     protected boolean mbutton = true;
 
-    private TextView mTvTitle;
-    private TextView mTvTitleDesc;
-    private Button mBtnCancel;
+    private TextView tvTitle;
+    private TextView tvTitleDesc;
+    private Button btnCancel;
 
     @Getter
     @Setter
@@ -46,11 +46,11 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.loading_dialog, container, true);
 
-        mTvTitle = (TextView) view.findViewById(R.id.tv_step);
-        mTvTitleDesc = (TextView) view.findViewById(R.id.tv_step_name);
-        mBtnCancel = (Button) view.findViewById(R.id.btn_cancel);
+        tvTitle = (TextView) view.findViewById(R.id.tv_step);
+        tvTitleDesc = (TextView) view.findViewById(R.id.tv_step_name);
+        btnCancel = (Button) view.findViewById(R.id.btn_cancel);
 
-        mBtnCancel.setOnClickListener((cancelListener));
+        btnCancel.setOnClickListener((cancelListener));
 
 
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -63,7 +63,7 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
 
         mbutton = getArguments().getBoolean(SHOW_CANCEL_BUTTON);
         if (!mbutton) {
-            mBtnCancel.setVisibility(View.GONE);
+            btnCancel.setVisibility(View.GONE);
         }
 
         setCancelable(false);
@@ -73,9 +73,9 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
     }
 
     public void updateInfo(String step, String stepInfo) {
-        if (mTvTitle != null) {
-            mTvTitle.setText(step);
-            mTvTitleDesc.setText(stepInfo);
+        if (tvTitle != null) {
+            tvTitle.setText(step);
+            tvTitleDesc.setText(stepInfo);
         }
     }
 }

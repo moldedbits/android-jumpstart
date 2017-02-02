@@ -10,7 +10,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -21,18 +20,18 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class BaseActivityTest {
 
     @Rule
-    public ActivityTestRule<BaseDrawerActivity> mTestRule =
+    public ActivityTestRule<BaseDrawerActivity> testRule =
             new ActivityTestRule<>(BaseDrawerActivity.class, true, false);
 
     @Before
     public void setup() {
         ((DebugBaseApplication) DebugBaseApplication.getInstance()).enableMockMode();
-        mTestRule.launchActivity(null);
+        testRule.launchActivity(null);
     }
 
     @After
     public void tearDown() {
-        mTestRule.getActivity().finish();
+        testRule.getActivity().finish();
     }
 
     @Test

@@ -34,27 +34,27 @@ public class ThemedInfoDialog extends DialogFragment {
     public static final String KEY_POSITIVE_BUTTON_TEXT = "positive_button_text";
     private static final String KEY_NEGATIVE_BUTTON_TEXT = "negative_button_text";
     private static final String KEY_SHOW_CANCEL_BUTTON = "show_cancel_button";
-    private ProgressDialog mProgressDialog;
-    protected boolean mShowCancel = false;
+    private ProgressDialog progressDialog;
+    protected boolean showCancel = false;
 
-    private ViewGroup mContainer;
+    private ViewGroup container;
 
     @Getter
     @Setter
     public View.OnClickListener okListener;
 
     @Bind(R.id.tv_title)
-    TextView mTitle;
+    TextView titleTv;
 
     @Bind(R.id.tv_message)
-    TextView mMessage;
+    TextView messageTv;
 
     @Bind(R.id.btn_ok)
-    Button mOkButton;
+    Button okButton;
 
     @Bind(R.id.btn_no)
-    Button mCancelButton;
-    boolean mButton;
+    Button cancelButton;
+    boolean button;
 
 
     public static ThemedInfoDialog newInstance(String title, String message, String positiveText,
@@ -87,23 +87,23 @@ public class ThemedInfoDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mContainer = container;
+        this.container = container;
         View rootView = inflater.inflate(R.layout.fragment_themed_dialog, container, false);
         ButterKnife.bind(this, rootView);
         getDialog().setCanceledOnTouchOutside(true);
         Bundle args = getArguments();
-        mMessage.setText(args.getString(KEY_MESSAGE));
-        mTitle.setText(args.getString(KEY_TITLE));
-        mCancelButton.setVisibility(View.GONE);
-        mButton = args.getBoolean(KEY_SHOW_CANCEL_BUTTON);
-        if (mButton) {
-            mCancelButton.setVisibility(View.VISIBLE);
+        messageTv.setText(args.getString(KEY_MESSAGE));
+        titleTv.setText(args.getString(KEY_TITLE));
+        cancelButton.setVisibility(View.GONE);
+        button = args.getBoolean(KEY_SHOW_CANCEL_BUTTON);
+        if (button) {
+            cancelButton.setVisibility(View.VISIBLE);
         }
 
         if (TextUtils.isEmpty(args.getString(KEY_POSITIVE_BUTTON_TEXT))) {
-            mOkButton.setText(getString(android.R.string.ok));
+            okButton.setText(getString(android.R.string.ok));
         } else {
-            mOkButton.setText(args.getString(KEY_POSITIVE_BUTTON_TEXT));
+            okButton.setText(args.getString(KEY_POSITIVE_BUTTON_TEXT));
         }
 
         return rootView;

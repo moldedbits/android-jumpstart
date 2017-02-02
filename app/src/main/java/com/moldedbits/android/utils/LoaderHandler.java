@@ -13,7 +13,7 @@ import retrofit2.Call;
 
 public abstract class LoaderHandler<T> extends Loader<T> {
 
-    Activity mActivity;
+    Activity activity;
 
     @Getter
     ResponseCallback<T> callback;
@@ -24,8 +24,8 @@ public abstract class LoaderHandler<T> extends Loader<T> {
 
     public LoaderHandler(Activity activity) {
         super(activity);
-        mActivity = activity;
-        callback = new ResponseCallback<T>(mActivity) {
+        this.activity = activity;
+        callback = new ResponseCallback<T>(LoaderHandler.this.activity) {
             @Override
             public void onSuccess(Call<BaseResponse<T>> call, BaseResponse<T> response) {
                 data = response.getResult();

@@ -20,10 +20,10 @@ import retrofit2.Response;
 
 public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
 
-    private Activity mActivity;
+    private Activity activity;
 
     public ResponseCallback(Activity activity) {
-        mActivity = activity;
+        this.activity = activity;
     }
 
     public abstract void onSuccess(Call<BaseResponse<T>> call, BaseResponse<T> response);
@@ -66,7 +66,7 @@ public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
     public void onFailure(Call<BaseResponse<T>> call, Throwable t) {
         if (t != null) {
             if (t instanceof IOException) {
-                showSnackBar(true, mActivity.getString(R.string.internet_slow_or_disconnected),
+                showSnackBar(true, activity.getString(R.string.internet_slow_or_disconnected),
                         call);
             } else {
                 showSnackBar(false, t.getMessage(), call);
@@ -77,14 +77,14 @@ public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
 
     private ApiError getMockError() {
         ApiError apiError = new ApiError();
-        apiError.setErrors(mActivity.getString(R.string.something_went_wrong));
+        apiError.setErrors(activity.getString(R.string.something_went_wrong));
         apiError.setSuccess(BaseResponse.Status.FAILURE);
         return apiError;
     }
 
     private void showSnackBar(boolean isClickable, String message,
                               final Call<BaseResponse<T>> call) {
-        Snackbar snackbar = Snackbar.make(mActivity.findViewById(android.R.id.content), message,
+        Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), message,
                 Snackbar.LENGTH_LONG);
         if (isClickable) {
             snackbar.setAction("Retry", new View.OnClickListener() {

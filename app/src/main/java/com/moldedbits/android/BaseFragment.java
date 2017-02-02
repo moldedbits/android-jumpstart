@@ -63,21 +63,21 @@ public abstract class BaseFragment extends Fragment
         return handler;
     }
 
-    private LoadingDialog mLoadingDialog;
+    private LoadingDialog loadingDialog;
 
     protected void cancelLoadingDialog() {
-        if (mLoadingDialog != null
-                && mLoadingDialog.getDialog() != null
-                && mLoadingDialog.getDialog().isShowing()) {
-            mLoadingDialog.getDialog().dismiss();
+        if (loadingDialog != null
+                && loadingDialog.getDialog() != null
+                && loadingDialog.getDialog().isShowing()) {
+            loadingDialog.getDialog().dismiss();
         }
     }
 
     protected void showLoadingDialog(int stringResId) {
-        mLoadingDialog = LoadingDialog.newInstance(getString(stringResId),
+        loadingDialog = LoadingDialog.newInstance(getString(stringResId),
                 getString(R.string.please_wait), true);
-        mLoadingDialog.show(getActivity().getSupportFragmentManager(), null);
-        mLoadingDialog.setCancelListener(new View.OnClickListener() {
+        loadingDialog.show(getActivity().getSupportFragmentManager(), null);
+        loadingDialog.setCancelListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 cancelLoadingDialog();
