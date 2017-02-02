@@ -14,10 +14,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/text_large"
+            android:textSize="@dimen/text_5x2"
             tools:text="Step 1 of 4"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_4x"
             android:layout_gravity="center"/>
 
         <View
@@ -38,10 +38,10 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:layout_below="@+id/tv_step"
-            android:textSize="@dimen/text_medium"
-            android:layout_margin="@dimen/margin_medium"
-            android:paddingLeft="@dimen/padding_default"
-            android:paddingRight="@dimen/padding_default"
+            android:textSize="@dimen/text_2x"
+            android:layout_margin="@dimen/margin_3x"
+            android:paddingLeft="@dimen/padding_2x"
+            android:paddingRight="@dimen/padding_2x"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"
             android:lines="2"/>
@@ -51,10 +51,10 @@
     <ProgressBar
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="@dimen/padding_large"
+        android:padding="@dimen/padding_4x"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/margin_large"/>
+        android:layout_margin="@dimen/margin_4x"/>
 
     <Button
         android:id="@+id/btn_cancel"
@@ -62,10 +62,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/button_margin"
         android:layout_marginRight="@dimen/button_margin"
-        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_4x"
         android:layout_marginBottom="@dimen/button_margin"
         android:text="@string/cancel"
-        android:textSize="@dimen/text_medium"
+        android:textSize="@dimen/text_2x"
         android:layout_gravity="center"
         android:textColor="@android:color/white"
         android:gravity="center"/>
