@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
 
-import com.moldedbits.android.R;
-
 public class BaseToolBarActivity extends BaseActivity {
 
     private FrameLayout mContentFrame;

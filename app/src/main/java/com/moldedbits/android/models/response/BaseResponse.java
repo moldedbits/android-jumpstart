@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- *
  * Created by abhishek on 08/04/16.
  */
 public class BaseResponse<T> {
@@ -24,7 +23,7 @@ public class BaseResponse<T> {
     @Setter
     T result;
 
-    public enum Status{
+    public enum Status {
         @SerializedName("success")
         SUCCESS("success"),
 

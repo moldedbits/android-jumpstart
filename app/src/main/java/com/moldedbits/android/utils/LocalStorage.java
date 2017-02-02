@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import com.moldedbits.android.BaseApplication;
 
 /**
- *
  * Created by abhishek on 18/03/15.
  */
 public class LocalStorage {

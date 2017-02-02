@@ -6,7 +6,6 @@ import lombok.Getter;
 import timber.log.Timber;
 
 /**
- *
  * Created by abhishek on 05/04/16.
  */
 public class BaseApplication extends Application {

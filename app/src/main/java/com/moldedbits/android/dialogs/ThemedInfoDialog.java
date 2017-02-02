@@ -25,7 +25,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- *
  * Created by viveksingh on 18/01/16.
  */
 public class ThemedInfoDialog extends DialogFragment {

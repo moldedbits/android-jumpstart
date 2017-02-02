@@ -174,9 +174,12 @@
         <module name="OverloadMethodsDeclarationOrder"/>
         <module name="VariableDeclarationUsageDistance"/>
         <module name="CustomImportOrder">
-            <property name="customImportOrderRules" value="THIRD_PARTY_PACKAGE###STATIC"/>
+            <property name="customImportOrderRules"
+                      value="THIRD_PARTY_PACKAGE###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###STATIC"/>
+            <property name="specialImportsRegExp" value="^(?!(com|android|java|javax|junit|net|org)).+"/>
+            <property name="standardPackageRegExp" value="^(java|javax)\."/>
             <property name="sortImportsInGroupAlphabetically" value="true"/>
-            <property name="separateLineBetweenGroups" value="true"/>
+            <property name="separateLineBetweenGroups" value="false"/>
         </module>
         <module name="MethodParamPad"/>
         <module name="ParenPad"/>

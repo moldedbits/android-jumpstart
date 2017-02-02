@@ -32,13 +32,16 @@ public abstract class LoaderHandler<T> extends Loader<T> {
             }
 
             @Override
-            public void onError(ApiError error) {}
+            public void onError(ApiError error) {
+            }
 
             @Override
-            public void onFailure(Throwable t) {}
+            public void onFailure(Throwable t) {
+            }
 
             @Override
-            public void onRetry(Call<BaseResponse<T>> call) {}
+            public void onRetry(Call<BaseResponse<T>> call) {
+            }
         };
     }
 
