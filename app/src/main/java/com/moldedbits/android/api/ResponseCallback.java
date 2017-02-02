@@ -1,7 +1,8 @@
 package com.moldedbits.android.api;
 
 /**
- * Created by abhishek on 08/04/16.
+ * Created by abhishek
+ * on 08/04/16.
  */
 
 import android.app.Activity;
@@ -30,10 +31,7 @@ public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
 
     public abstract void onError(ApiError error);
 
-    public abstract void onFailure(Throwable t);
-
     public abstract void onRetry(Call<BaseResponse<T>> call);
-
 
     @Override
     public void onResponse(Call<BaseResponse<T>> call, Response<BaseResponse<T>> response) {
@@ -62,16 +60,19 @@ public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
         showSnackBar(false, message, call);
     }
 
+
+    public abstract void onFailure(Throwable throwable);
+
     @Override
-    public void onFailure(Call<BaseResponse<T>> call, Throwable t) {
-        if (t != null) {
-            if (t instanceof IOException) {
+    public void onFailure(Call<BaseResponse<T>> call, Throwable throwable) {
+        if (throwable != null) {
+            if (throwable instanceof IOException) {
                 showSnackBar(true, activity.getString(R.string.internet_slow_or_disconnected),
                         call);
             } else {
-                showSnackBar(false, t.getMessage(), call);
+                showSnackBar(false, throwable.getMessage(), call);
             }
-            onFailure(t);
+            onFailure(throwable);
         }
     }
 
@@ -89,7 +90,7 @@ public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
         if (isClickable) {
             snackbar.setAction("Retry", new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     if (call != null) {
                         onRetry(call);
                     }

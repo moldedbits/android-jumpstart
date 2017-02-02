@@ -32,7 +32,7 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
     private View.OnClickListener cancelListener;
 
     public static LoadingDialog newInstance(String title, String description, boolean button) {
-        LoadingDialog loadingDialog = new LoadingDialog();
+        final LoadingDialog loadingDialog = new LoadingDialog();
         Bundle bundle = new Bundle();
         bundle.putString(TITLE, title);
         bundle.putString(DESCRIPTION, description);

@@ -13,16 +13,16 @@ import retrofit2.Call;
 
 public abstract class LoaderHandler<T> extends Loader<T> {
 
-    Activity activity;
+    private Activity activity;
 
     @Getter
     ResponseCallback<T> callback;
 
-    T data;
+    private T data;
 
     public abstract T getData();
 
-    public LoaderHandler(Activity activity) {
+    protected LoaderHandler(Activity activity) {
         super(activity);
         this.activity = activity;
         callback = new ResponseCallback<T>(LoaderHandler.this.activity) {
@@ -36,7 +36,7 @@ public abstract class LoaderHandler<T> extends Loader<T> {
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Throwable throwable) {
             }
 
             @Override

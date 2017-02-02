@@ -7,7 +7,7 @@ import android.view.View;
 import com.moldedbits.android.api.ResponseCallback;
 import com.moldedbits.android.dialogs.LoadingDialog;
 import com.moldedbits.android.utils.LoaderHandler;
-import com.moldedbits.android.utils.fragment_transaction_handler.FragmentTransactionHandler;
+import com.moldedbits.android.utils.fragmenttransactionhandler.FragmentTransactionHandler;
 
 public abstract class BaseFragment extends Fragment
         implements android.support.v4.app.LoaderManager.LoaderCallbacks<Object> {

@@ -13,7 +13,7 @@ public class BaseApplication extends Application {
     private static BaseApplication instance;
 
     @Getter
-    protected APIComponent apiComponent;
+    protected ApiComponent apiComponent;
 
     @Override
     public void onCreate() {
@@ -24,7 +24,7 @@ public class BaseApplication extends Application {
             Timber.plant(new Timber.DebugTree());
         }
 
-        apiComponent = DaggerAPIComponent.create();
+        apiComponent = DaggerApiComponent.create();
     }
 
     public static BaseApplication getInstance() {

@@ -1,14 +1,14 @@
 package com.moldedbits.android;
 
-import com.moldedbits.android.api.APIModule;
+import com.moldedbits.android.api.ApiModule;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 
 @Singleton
-@Component(modules = {APIModule.class})
-public interface APIComponent {
+@Component(modules = {ApiModule.class})
+public interface ApiComponent {
 
     void inject(BaseActivity baseActivity);
 }

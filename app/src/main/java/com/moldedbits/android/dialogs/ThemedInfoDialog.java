@@ -1,6 +1,5 @@
 package com.moldedbits.android.dialogs;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -25,7 +24,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by viveksingh on 18/01/16.
+ * Created by viveksingh
+ * on 18/01/16.
  */
 public class ThemedInfoDialog extends DialogFragment {
 
@@ -34,10 +34,6 @@ public class ThemedInfoDialog extends DialogFragment {
     public static final String KEY_POSITIVE_BUTTON_TEXT = "positive_button_text";
     private static final String KEY_NEGATIVE_BUTTON_TEXT = "negative_button_text";
     private static final String KEY_SHOW_CANCEL_BUTTON = "show_cancel_button";
-    private ProgressDialog progressDialog;
-    protected boolean showCancel = false;
-
-    private ViewGroup container;
 
     @Getter
     @Setter
@@ -87,7 +83,6 @@ public class ThemedInfoDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.container = container;
         View rootView = inflater.inflate(R.layout.fragment_themed_dialog, container, false);
         ButterKnife.bind(this, rootView);
         getDialog().setCanceledOnTouchOutside(true);
@@ -109,20 +104,6 @@ public class ThemedInfoDialog extends DialogFragment {
         return rootView;
     }
 
-    @Override
-    public void show(FragmentManager manager, String tag) {
-        super.show(manager, tag);
-        Map<String, Object> data = new HashMap<>(1);
-        data.put("DialogFragment", this.getClass().getName());
-    }
-
-    @Override
-    public int show(FragmentTransaction transaction, String tag) {
-        Map<String, Object> data = new HashMap<>(1);
-        data.put("DialogFragment", this.getClass().getName());
-        return super.show(transaction, tag);
-    }
-
     @OnClick(R.id.btn_ok)
     void onClickOk(View view) {
         dismiss();
@@ -130,7 +111,6 @@ public class ThemedInfoDialog extends DialogFragment {
             okListener.onClick(view);
         }
     }
-
 
     @OnClick(R.id.btn_no)
     public void onClickCancel() {

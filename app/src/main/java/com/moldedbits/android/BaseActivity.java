@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.moldedbits.android.api.APIService;
+import com.moldedbits.android.api.ApiService;
 import com.moldedbits.android.dialogs.LoadingDialog;
-import com.moldedbits.android.utils.fragment_transaction_handler.FragmentTransactionHandler;
+import com.moldedbits.android.utils.fragmenttransactionhandler.FragmentTransactionHandler;
 
 import javax.inject.Inject;
 
@@ -20,7 +20,7 @@ import javax.inject.Inject;
 public class BaseActivity extends AppCompatActivity {
 
     @Inject
-    APIService apiService;
+    ApiService apiService;
 
     private FrameLayout contentFrame;
     public FragmentTransactionHandler handler;
@@ -60,8 +60,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    public void setContentView(int layoutResID) {
-        getLayoutInflater().inflate(layoutResID, contentFrame, true);
+    public void setContentView(int layoutResId) {
+        getLayoutInflater().inflate(layoutResId, contentFrame, true);
     }
 
     @Override
@@ -69,11 +69,10 @@ public class BaseActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
-
                 return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public void dismissLoadingDialogWithHandler(LoadingDialog dialog) {

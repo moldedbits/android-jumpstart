@@ -23,7 +23,7 @@ public class BaseToolBarActivity extends BaseActivity {
     }
 
     @Override
-    public void setContentView(int layoutResID) {
-        getLayoutInflater().inflate(layoutResID, contentFrame, true);
+    public void setContentView(int layoutResId) {
+        getLayoutInflater().inflate(layoutResId, contentFrame, true);
     }
 }

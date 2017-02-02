@@ -6,11 +6,11 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class MockAPIModule {
+public class MockApiModule {
 
     @Provides
     @Singleton
-    APIService providesAPIService() {
-        return new MockAPIService();
+    ApiService providesApiService() {
+        return new MockApiService();
     }
 }
