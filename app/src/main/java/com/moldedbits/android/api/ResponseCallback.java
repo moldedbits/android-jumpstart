@@ -1,9 +1,5 @@
 package com.moldedbits.android.api;
 
-/**
- * Created by abhishek
- * on 08/04/16.
- */
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
@@ -19,9 +15,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Created by abhishek
+ * on 08/04/16.
+ */
+
 public abstract class ResponseCallback<T> implements Callback<BaseResponse<T>> {
 
-    private Activity activity;
+    private final Activity activity;
 
     public ResponseCallback(Activity activity) {
         this.activity = activity;

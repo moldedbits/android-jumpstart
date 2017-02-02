@@ -3,8 +3,6 @@ package com.moldedbits.android.dialogs;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.moldedbits.android.R;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -29,9 +24,9 @@ import lombok.Setter;
  */
 public class ThemedInfoDialog extends DialogFragment {
 
-    public static final String KEY_MESSAGE = "message";
-    public static final String KEY_TITLE = "title";
-    public static final String KEY_POSITIVE_BUTTON_TEXT = "positive_button_text";
+    private static final String KEY_MESSAGE = "message";
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_POSITIVE_BUTTON_TEXT = "positive_button_text";
     private static final String KEY_NEGATIVE_BUTTON_TEXT = "negative_button_text";
     private static final String KEY_SHOW_CANCEL_BUTTON = "show_cancel_button";
 

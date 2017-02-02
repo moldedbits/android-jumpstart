@@ -6,13 +6,14 @@ import android.content.SharedPreferences;
 import com.moldedbits.android.BaseApplication;
 
 /**
- * Created by abhishek on 18/03/15.
+ * Created by abhishek
+ * on 18/03/15.
  */
 public class LocalStorage {
 
-    private SharedPreferences preferences;
+    private final SharedPreferences preferences;
 
-    private static LocalStorage instance = new LocalStorage();
+    private static final LocalStorage instance = new LocalStorage();
 
     public static LocalStorage getInstance() {
         return instance;

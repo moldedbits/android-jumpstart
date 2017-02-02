@@ -12,7 +12,7 @@ import com.moldedbits.android.utils.fragmenttransactionhandler.FragmentTransacti
 public abstract class BaseFragment extends Fragment
         implements android.support.v4.app.LoaderManager.LoaderCallbacks<Object> {
 
-    public FragmentTransactionHandler handler;
+    protected FragmentTransactionHandler handler;
 
     public abstract void requestApi(ResponseCallback responseCallback);
 

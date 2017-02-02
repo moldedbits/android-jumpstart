@@ -14,7 +14,8 @@ import javax.inject.Inject;
 
 
 /**
- * Created by shishank on 08/01/16.
+ * Created by shishank
+ * on 08/01/16.
  */
 // TODO: 05/04/16 Add Loader
 public class BaseActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class BaseActivity extends AppCompatActivity {
     ApiService apiService;
 
     private FrameLayout contentFrame;
-    public FragmentTransactionHandler handler;
+    protected FragmentTransactionHandler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class BaseActivity extends AppCompatActivity {
         handler.setActivity(null);
     }
 
-    public FragmentTransactionHandler getHandler() {
+    protected FragmentTransactionHandler getHandler() {
         return handler;
     }
 

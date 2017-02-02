@@ -13,7 +13,7 @@ import retrofit2.Call;
 
 public abstract class LoaderHandler<T> extends Loader<T> {
 
-    private Activity activity;
+    private final Activity activity;
 
     @Getter
     ResponseCallback<T> callback;

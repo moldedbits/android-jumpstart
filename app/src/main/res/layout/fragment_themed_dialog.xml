@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@android:color/white"
-              android:orientation="vertical">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/colorPrimary"
         android:gravity="center"
@@ -29,16 +29,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_ok"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginBottom="@dimen/margin_large"
-            android:layout_marginLeft="@dimen/margin_default"
-            android:layout_marginRight="@dimen/margin_default"
-            android:text="@string/ok"/>
-
-        <Button
             android:id="@+id/btn_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,6 +38,19 @@
             android:layout_marginRight="@dimen/margin_default"
             android:gravity="center"
             android:text="@string/cancel"
+            style="?android:attr/buttonBarButtonStyle"
             android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/ok"/>
+
     </LinearLayout>
 </LinearLayout>

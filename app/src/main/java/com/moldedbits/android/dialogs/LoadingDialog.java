@@ -20,12 +20,11 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
 
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
-    private static final String SHOW_CANCEL_BUTTON = "showCancelButton";
+    public static final String SHOW_CANCEL_BUTTON = "showCancelButton";
     protected boolean mbutton = true;
 
     private TextView tvTitle;
     private TextView tvTitleDesc;
-    private Button btnCancel;
 
     @Getter
     @Setter
@@ -48,18 +47,20 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
 
         tvTitle = (TextView) view.findViewById(R.id.tv_step);
         tvTitleDesc = (TextView) view.findViewById(R.id.tv_step_name);
-        btnCancel = (Button) view.findViewById(R.id.btn_cancel);
+        Button btnCancel = (Button) view.findViewById(R.id.btn_cancel);
 
         btnCancel.setOnClickListener((cancelListener));
 
 
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        WindowManager.LayoutParams params = getDialog().getWindow().getAttributes();
-        params.height = WindowManager.LayoutParams.MATCH_PARENT;
-        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        if(getDialog().getWindow() != null) {
+            WindowManager.LayoutParams params = getDialog().getWindow().getAttributes();
+            params.height = WindowManager.LayoutParams.MATCH_PARENT;
+            params.width = WindowManager.LayoutParams.MATCH_PARENT;
 
-        getDialog().getWindow().setAttributes(params);
+            getDialog().getWindow().setAttributes(params);
+        }
 
         mbutton = getArguments().getBoolean(SHOW_CANCEL_BUTTON);
         if (!mbutton) {

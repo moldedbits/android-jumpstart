@@ -16,7 +16,7 @@ public abstract class PauseHandler extends Handler {
     /**
      * Message Queue Buffer
      */
-    private final Vector<Message> messageQueueBuffer = new Vector<Message>();
+    private final Vector<Message> messageQueueBuffer = new Vector<>();
 
     /**
      * Flag indicating the pause state
