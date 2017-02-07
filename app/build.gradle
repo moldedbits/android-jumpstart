@@ -103,7 +103,7 @@ dependencies {
     compile 'com.android.support:design:25.1.1'
 
     // Kotlin
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Lombok
     // https://projectlombok.org/setup/android.html
