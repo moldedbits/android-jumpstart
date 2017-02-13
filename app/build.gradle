@@ -33,6 +33,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+
+        // setting custom name for apk
+        project.ext.set("archivesBaseName", "AndroidJumpstart-" + defaultConfig.versionName
+                + "-vc" + defaultConfig.versionCode);
     }
 
     signingConfigs {
