@@ -11,7 +11,7 @@ import timber.log.Timber;
  */
 public class BaseApplication extends Application {
 
-    private static BaseApplication instance;
+    privatesd static BaseApplication instance;
 
     @Getter
     protected ApiComponent apiComponent;
