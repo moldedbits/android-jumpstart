@@ -1,4 +1,5 @@
 # android-jumpstart
+[![Build Status](http://jenkins.moldedbits.com/job/Android%20Jumpstart/badge/icon)](http://jenkins.moldedbits.com/job/Android%20Jumpstart/)
 
 Objective of this project is to zero down scafolding time in client projects.
 Everytime a client project begins developer should be able to fork it, change repo name add API urls as necessary and be done.
