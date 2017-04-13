@@ -1,6 +1,5 @@
 apply plugin: 'checkstyle'
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
 
 preBuild.dependsOn 'checkstyle'
 check.dependsOn 'checkstyle'
@@ -144,9 +143,6 @@ dependencies {
 
     // design support
     compile 'com.android.support:design:25.1.1'
-
-    // Kotlin
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Lombok
     // https://projectlombok.org/setup/android.html
