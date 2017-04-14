@@ -39,8 +39,8 @@ android {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode incrementVersionTask.getVersionCode()
-        versionName incrementVersionTask.getVersionName()
+        versionCode incrementVersionTask.getCurrentVersionCode()
+        versionName incrementVersionTask.getCurrentVersionName()
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
 

@@ -40,7 +40,7 @@ class MBIncrementVersionTask extends DefaultTask {
         return versionFile
     }
 
-    def String getVersionName() {
+    def String getCurrentVersionName() {
         VersionNo version = getVersionFromFile()
         // naming convention is
         // major(2char).minor(2char).patch(2char)
@@ -51,7 +51,7 @@ class MBIncrementVersionTask extends DefaultTask {
         return "" + version.major + "." + version.minor + "." + patch
     }
 
-    def int getVersionCode() {
+    def int getCurrentVersionCode() {
         VersionNo version = getVersionFromFile()
         return version.patch;
     }
