@@ -1,9 +1,19 @@
 apply plugin: 'checkstyle'
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+
 
 preBuild.dependsOn 'checkstyle'
 check.dependsOn 'checkstyle'
+
+// auto increment version stuff
+import com.moldedbits.android.MBIncrementVersionTask
+
+task incrementVersionTask(type: MBIncrementVersionTask)
+tasks.whenTaskAdded { task ->
+    if (task.name == 'generateReleaseBuildConfig') {
+        task.dependsOn 'incrementVersionTask'
+    }
+}
 
 task checkstyle(type: Checkstyle) {
     configFile file("${project.rootDir}/config/quality/checkstyle.xml")
@@ -20,7 +30,7 @@ task checkstyle(type: Checkstyle) {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion "25.0.2"
 
     final API_URL_DEV = "https://bookstore-mb.herokuapp.com/";
     final API_URL_PROD = "https://bookstore-mb.herokuapp.com/";
@@ -29,8 +39,8 @@ android {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode incrementVersionTask.getCurrentVersionCode()
+        versionName incrementVersionTask.getCurrentVersionName()
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
 
@@ -105,9 +115,9 @@ android {
         // if true, treat all warnings as errors
         warningsAsErrors false
         // turn off checking the given issue id's
-        disable 'TypographyFractions','TypographyQuotes'
+        disable 'TypographyFractions', 'TypographyQuotes'
         // turn on the given issue id's
-        enable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
+        enable 'RtlHardcoded', 'RtlCompat', 'RtlEnabled'
         // check *only* the given issue id's
         //check 'NewApi', 'InlinedApi'
         // if true, don't include source code lines in the error output
@@ -134,8 +144,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.android.support:design:25.1.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
 
     // Use Retrofit for API interaction
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -143,10 +153,7 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.0'
 
     // design support
-    compile 'com.android.support:design:25.1.1'
-
-    // Kotlin
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'com.android.support:design:25.3.1'
 
     // Lombok
     // https://projectlombok.org/setup/android.html
@@ -168,7 +175,7 @@ dependencies {
     //Tests
     // Required -- JUnit 4 framework
     testCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support:support-annotations:25.1.1'
+    androidTestCompile 'com.android.support:support-annotations:25.3.1'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support.test:rules:0.5'
 
