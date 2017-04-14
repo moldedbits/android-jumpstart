@@ -12,7 +12,7 @@ class MBIncrementVersionTask extends DefaultTask {
     class VersionNo {
         int major=1
         int minor=0
-        int patch=0
+        int patch=1
     }
 
     @TaskAction
@@ -25,13 +25,6 @@ class MBIncrementVersionTask extends DefaultTask {
             VersionNo version = new JsonSlurper().parse(versionFile)
 
             version.patch += 1
-
-            // if its
-            if(version.patch == 10) {
-                version.minor += 1
-                version.patch = 0
-            }
-
             versionFile.write(JsonOutput.toJson(version))
         } else {
             initVersionFile()
@@ -53,19 +46,14 @@ class MBIncrementVersionTask extends DefaultTask {
         // major(2char).minor(2char).patch(2char)
         // lets get strings in way that naming looks like 1.01.01
         String patch = version.patch
-        if(version.patch < 10)
-            patch = patch.padLeft(2, '0')
+        patch = patch.padLeft(3, '0')
 
-        String minor = version.minor
-        if(version.minor < 10)
-            minor = minor.padLeft(2, '0')
-
-        return "" + version.major + "." + minor + "." + patch
+        return "" + version.major + "." + version.minor + "." + patch
     }
 
     def int getVersionCode() {
         VersionNo version = getVersionFromFile()
-        return version.patch + version.minor * 10 + version.major * 100
+        return version.patch;
     }
 
     private def VersionNo getVersionFromFile() {
