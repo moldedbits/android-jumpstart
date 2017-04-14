@@ -50,11 +50,7 @@ class MBIncrementVersionTask extends DefaultTask {
         VersionNo version = getVersionFromFile()
         // naming convention is
         // major(2char).minor(2char).patch(2char)
-        // lets get strings in way that naming looks like 1.01.01
-        String patch = version.patch
-        patch = patch.padLeft(3, '0')
-
-        return "" + version.major + "." + version.minor + "." + patch
+        return "" + version.major + "." + version.minor + "." + version.patch
     }
 
     def int getCurrentVersionCode() {
