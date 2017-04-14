@@ -6,6 +6,12 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 
+/**
+ * Increments version name and version code on each release build
+ * Naming convention looks like this
+ * <Major>.<Minor>.<PatchNo>
+ * Major and Minor are user defined and PatchNo represents version code
+ */
 class MBIncrementVersionTask extends DefaultTask {
     def versionFileName = "version.properties"
 
