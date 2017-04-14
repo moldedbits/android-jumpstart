@@ -5,8 +5,15 @@ apply plugin: 'com.android.application'
 preBuild.dependsOn 'checkstyle'
 check.dependsOn 'checkstyle'
 
+// auto increment version stuff
 import com.moldedbits.android.MBIncrementVersionTask
+
 task incrementVersionTask(type: MBIncrementVersionTask)
+tasks.whenTaskAdded { task ->
+    if (task.name == 'generateReleaseBuildConfig') {
+        task.dependsOn 'incrementVersionTask'
+    }
+}
 
 task checkstyle(type: Checkstyle) {
     configFile file("${project.rootDir}/config/quality/checkstyle.xml")
@@ -32,8 +39,8 @@ android {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode incrementVersionTask.getVersionCode()
+        versionName incrementVersionTask.getVersionName()
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
 
@@ -108,9 +115,9 @@ android {
         // if true, treat all warnings as errors
         warningsAsErrors false
         // turn off checking the given issue id's
-        disable 'TypographyFractions','TypographyQuotes'
+        disable 'TypographyFractions', 'TypographyQuotes'
         // turn on the given issue id's
-        enable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
+        enable 'RtlHardcoded', 'RtlCompat', 'RtlEnabled'
         // check *only* the given issue id's
         //check 'NewApi', 'InlinedApi'
         // if true, don't include source code lines in the error output
