@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
 
-public class BaseToolBarActivity extends BaseActivity {
+public abstract class BaseToolBarActivity extends BaseActivity {
 
     private FrameLayout contentFrame;
 

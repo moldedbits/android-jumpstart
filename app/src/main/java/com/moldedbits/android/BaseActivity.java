@@ -17,8 +17,7 @@ import javax.inject.Inject;
  * Created by shishank
  * on 08/01/16.
  */
-// TODO: 05/04/16 Add Loader
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Inject
     ApiService apiService;
@@ -35,6 +34,11 @@ public class BaseActivity extends AppCompatActivity {
 
         contentFrame = (FrameLayout) findViewById(R.id.base_container);
         handler = new FragmentTransactionHandler();
+    }
+
+    @Override
+    public void setContentView(int layoutResId) {
+        getLayoutInflater().inflate(layoutResId, contentFrame, true);
     }
 
     @Override
@@ -58,11 +62,6 @@ public class BaseActivity extends AppCompatActivity {
 
     protected FragmentTransactionHandler getHandler() {
         return handler;
-    }
-
-    @Override
-    public void setContentView(int layoutResId) {
-        getLayoutInflater().inflate(layoutResId, contentFrame, true);
     }
 
     @Override
