@@ -10,8 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".BaseActivity"/>
-
         <activity android:name=".ExampleAppActivity"
                   android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,5 +18,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
