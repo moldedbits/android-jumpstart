@@ -37,6 +37,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
+    public void setContentView(int layoutResId) {
+        getLayoutInflater().inflate(layoutResId, contentFrame, true);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         handler.setActivity(this);
@@ -57,11 +62,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected FragmentTransactionHandler getHandler() {
         return handler;
-    }
-
-    @Override
-    public void setContentView(int layoutResId) {
-        getLayoutInflater().inflate(layoutResId, contentFrame, true);
     }
 
     @Override
