@@ -17,8 +17,7 @@ import javax.inject.Inject;
  * Created by shishank
  * on 08/01/16.
  */
-// TODO: 05/04/16 Add Loader
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Inject
     ApiService apiService;
