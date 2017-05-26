@@ -14,15 +14,15 @@ import javax.net.ssl.SSLSession;
 
 import dagger.Module;
 import dagger.Provides;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by abhishek
@@ -72,7 +72,7 @@ public class ApiModule {
                 .setDateFormat("yyyy-MM-dd")
                 .create();
 
-        RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory
+        RxJava2CallAdapterFactory rxAdapter = RxJava2CallAdapterFactory
                 .createWithScheduler(Schedulers.io());
 
         Retrofit retrofit = new Retrofit.Builder()
