@@ -35,6 +35,10 @@ android {
     final API_URL_DEV = "https://bookstore-mb.herokuapp.com/";
     final API_URL_PROD = "https://bookstore-mb.herokuapp.com/";
 
+//    configurations.all {
+//        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
+//    }
+
     defaultConfig {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
@@ -168,9 +172,11 @@ dependencies {
 
     // Dagger 2
     // Dagger 2 dependencies
-    compile 'com.google.dagger:dagger:2.8'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
+    compile 'com.google.dagger:dagger:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
     provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.google.dagger:dagger-android-support:2.11' // if you use the support libraries
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
 
     //Tests
     // Required -- JUnit 4 framework
@@ -181,10 +187,6 @@ dependencies {
 
     // Optional -- Mockito framework
     testCompile 'org.mockito:mockito-core:1.10.19'
-
-    // Optional -- UI testing with Espresso
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    androidTestCompile 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
 
     // RX Android
     compile 'io.reactivex:rxandroid:1.0.1'

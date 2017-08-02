@@ -6,7 +6,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
-@Singleton
-@Component(modules = {MockApiModule.class})
+//@Singleton
+//@Component(modules = {MockApiModule.class})
 interface MockApiComponent extends ApiComponent {
 }

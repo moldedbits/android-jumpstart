@@ -12,6 +12,8 @@ import com.moldedbits.android.utils.fragmenttransactionhandler.FragmentTransacti
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjection;
+
 
 /**
  * Created by shishank
@@ -30,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_base);
 
-        BaseApplication.getInstance().getApiComponent().inject(this);
+        // BaseApplication.getInstance().getApiComponent().inject(this);
 
         contentFrame = (FrameLayout) findViewById(R.id.base_container);
         handler = new FragmentTransactionHandler();
