@@ -43,6 +43,11 @@
 -dontwarn com.crashlytics.**
 
 ## Okio
--dontwarn java.nio.file.**
--dontwarn sun.misc.Unsafe
--dontwarn org.codehaus.mojo.**
+-dontwarn okio.**
+
+## okhttp3
+-dontwarn okhttp3.**
+
+## Rx Internal
+-dontwarn rx.internal.util.**
+-dontwarn rx.internal.schedulers.**

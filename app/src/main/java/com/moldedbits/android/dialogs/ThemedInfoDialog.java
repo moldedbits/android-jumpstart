@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.moldedbits.android.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import lombok.Getter;
@@ -34,16 +34,16 @@ public class ThemedInfoDialog extends DialogFragment {
     @Setter
     public View.OnClickListener okListener;
 
-    @Bind(R.id.tv_title)
+    @BindView(R.id.tv_title)
     TextView titleTv;
 
-    @Bind(R.id.tv_message)
+    @BindView(R.id.tv_message)
     TextView messageTv;
 
-    @Bind(R.id.btn_ok)
+    @BindView(R.id.btn_ok)
     Button okButton;
 
-    @Bind(R.id.btn_no)
+    @BindView(R.id.btn_no)
     Button cancelButton;
     boolean button;
 
