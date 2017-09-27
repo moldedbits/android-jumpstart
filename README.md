@@ -36,9 +36,11 @@ to the `APIService` which is injected into the BaseActivities.
 apiService.getSomeResource();
 ```
 
+#### Setting up the Navigation Drawer
 The BaseDrawerActivity handles the Navigation Drawer setup, and the DrawerActionToggle. You can
 customize the drawer menu by modifying the file `nav_drawer_menu.xml`
 
+#### Setting up the toolbar
 The BaseToolbarActivity handles setting up the toolbar and the home as up button. Simply have your
 classes extend this and there's no need to worry about the toolbar.
 
@@ -64,7 +66,7 @@ simple dialog with a title and a message, use the LoadingDialog class as
 LoadingDialog.newInstance(title, description, showCancelButton);
 ```
 
-#### APIProvider (todo)
+#### APIProvider
 The retrofit configuration is done here.
 
 #### Build configurations
