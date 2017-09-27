@@ -1,4 +1,4 @@
-### Android Jumpstart
+## Android Jumpstart
 
 [![Build Status](http://jenkins.moldedbits.com/buildStatus/icon?job=Android%20Jumpstart)](http://jenkins.moldedbits.com/job/Android%20Jumpstart/)
 
@@ -18,16 +18,16 @@ Jumpstart takes care of all this, and more. Jumpstart adds support for many comm
   * [Timber](https://github.com/JakeWharton/timber)
   * [ButterKnife](https://jakewharton.github.io/butterknife/)
 
-#### Setting up
+### Setting up
 
 Setting up is really easy, there's a python script
 [here](https://github.com/moldedbits/JumpstartScript) that clones the Jumpstart repo, changes the
 project name and package name. All the developer needs to after this is the update the API urls
 and they have a base project ready.
 
-#### How to use
+### How to use
 
-##### BaseActivity
+#### BaseActivity
 Make your activities extend one of `BaseActivity`, `BaseToolbarActivity` or `BaseDrawerActivity`,
 (all of which subclass `AppCompatActivity`) depending on your requirements. This gives you access
 to the `APIService` which is injected into the BaseActivities.
@@ -44,7 +44,7 @@ classes extend this and there's no need to worry about the toolbar.
 
 TODO Add information about FragmentTransactionHandler
 
-##### BaseFragment
+#### BaseFragment
 Similar to `BaseActivity`, extending `BaseFragment` gives you access to `apiService`. It also adds
 utility methods to show and hide progress dialogs.
 
@@ -56,7 +56,7 @@ showLoadingDialog(R.string.loading_message);
 cancelLoadingDialog();
 ```
 
-##### LoadingDialog
+#### LoadingDialog
 A very common requirement in an app is to show a loading dialog. When you just need to show a
 simple dialog with a title and a message, use the LoadingDialog class as
 
@@ -64,9 +64,9 @@ simple dialog with a title and a message, use the LoadingDialog class as
 LoadingDialog.newInstance(title, description, showCancelButton);
 ```
 
-##### APIProvider (todo)
+#### APIProvider (todo)
 The retrofit configuration is done here.
 
-##### Build configurations
+#### Build configurations
 Jumpstart adds four build types by default, _debug_, _debugProd_, _release_, _releaseProd_. You
 should configure these as per your requirements.
