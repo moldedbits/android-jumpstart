@@ -18,10 +18,6 @@ import butterknife.OnClick;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * Created by viveksingh
- * on 18/01/16.
- */
 public class ThemedInfoDialog extends DialogFragment {
 
     private static final String KEY_MESSAGE = "message";
