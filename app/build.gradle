@@ -32,8 +32,8 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.1'
 
-    final API_URL_DEV = "https://bookstore-mb.herokuapp.com/";
-    final API_URL_PROD = "https://bookstore-mb.herokuapp.com/";
+    final API_URL_DEV = "";
+    final API_URL_PROD = "";
 
     defaultConfig {
         applicationId "com.moldedbits.android"
