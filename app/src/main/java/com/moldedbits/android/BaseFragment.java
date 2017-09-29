@@ -7,10 +7,9 @@ import android.view.View;
 import com.moldedbits.android.dialogs.LoadingDialog;
 import com.moldedbits.android.utils.fragmenttransactionhandler.FragmentTransactionHandler;
 
-public abstract class BaseFragment extends Fragment{
+public abstract class BaseFragment extends Fragment {
 
     protected FragmentTransactionHandler handler;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

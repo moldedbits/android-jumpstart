@@ -32,8 +32,8 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.1'
 
-    final API_URL_DEV = "https://www.googel.com/";
-    final API_URL_PROD = "https://www.googel.com/";
+    final API_URL_DEV = "https://www.google.com/";
+    final API_URL_PROD = "https://www.google.com/";
 
     defaultConfig {
         applicationId "com.moldedbits.android"
