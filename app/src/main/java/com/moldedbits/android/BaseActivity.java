@@ -13,6 +13,10 @@ import com.moldedbits.android.utils.fragmenttransactionhandler.FragmentTransacti
 import javax.inject.Inject;
 
 
+/**
+ * Created by shishank
+ * on 08/01/16.
+ */
 public abstract class BaseActivity extends AppCompatActivity {
 
     @Inject
