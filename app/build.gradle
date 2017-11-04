@@ -33,7 +33,7 @@ task checkstyle(type: Checkstyle) {
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '26.0.2'
 
     final API_URL_DEV = "https://www.google.com/";
     final API_URL_PROD = "https://www.google.com/";
@@ -142,52 +142,57 @@ android {
         // optional path to report (default will be lint-results.html in the builddir)
         htmlOutput file("build/reports/lint/lint-report.html")
     }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.android.support:appcompat-v7:$supportLibVersion"
-    compile "com.android.support:design:$supportLibVersion"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
 
     // Use Retrofit for API interaction
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
 
     // design support
-    compile "com.android.support:design:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
 
     // Lombok
     // https://projectlombok.org/setup/android.html
-    provided 'org.projectlombok:lombok:1.16.18'
+    compileOnly 'org.projectlombok:lombok:1.16.18'
     annotationProcessor "org.projectlombok:lombok:1.16.18"
 
     // Timber for logging
-    compile 'com.jakewharton.timber:timber:4.5.1'
+    implementation 'com.jakewharton.timber:timber:4.5.1'
 
     // Butterknife for view injection
-    compile 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
 
     // Dagger 2
     // Dagger 2 dependencies
-    compile 'com.google.dagger:dagger:2.11'
+    implementation 'com.google.dagger:dagger:2.11'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
-    provided 'org.glassfish:javax.annotation:10.0-b28'
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
 
     //Tests
     // Required -- JUnit 4 framework
-    testCompile 'junit:junit:4.12'
-    androidTestCompile "com.android.support:support-annotations:$supportLibVersion"
-    androidTestCompile 'com.android.support.test:runner:1.0.1'
-    androidTestCompile 'com.android.support.test:rules:1.0.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation "com.android.support:support-annotations:$supportLibVersion"
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test:rules:1.0.1'
     // Optional -- Mockito framework
-    testCompile 'org.mockito:mockito-core:2.10.0'
+    testImplementation 'org.mockito:mockito-core:2.10.0'
     // Optional -- UI testing with Espresso
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     // RX Android
-    compile "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
-    compile "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-    compile "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
 }
