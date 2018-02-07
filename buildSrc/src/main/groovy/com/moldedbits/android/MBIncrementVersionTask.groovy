@@ -1,4 +1,4 @@
-package bdesir.raneh.salon
+package com.moldedbits.android
 
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper

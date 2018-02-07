@@ -9,7 +9,7 @@ preBuild.dependsOn 'checkstyle'
 check.dependsOn 'checkstyle'
 
 // auto increment version stuff
-import bdesir.raneh.salon.MBIncrementVersionTask
+import com.moldedbits.android.MBIncrementVersionTask
 
 task incrementVersionTask(type: MBIncrementVersionTask)
 tasks.whenTaskAdded { task ->
@@ -39,7 +39,7 @@ android {
     final API_URL_PROD = "https://www.google.com/";
 
     defaultConfig {
-        applicationId "bdesir.raneh.salon"
+        applicationId "com.moldedbits.android"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode incrementVersionTask.getCurrentVersionCode()

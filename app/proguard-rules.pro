@@ -29,7 +29,7 @@
 }
 
 ## Models
--keepclassmembers class bdesir.raneh.salon.model.** { *; }
+-keepclassmembers class com.moldedbits.android.model.** { *; }
 
 ##Design library
 -dontwarn android.support.design.**
