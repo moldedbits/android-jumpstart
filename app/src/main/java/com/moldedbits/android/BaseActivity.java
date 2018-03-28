@@ -17,20 +17,23 @@ import javax.inject.Inject;
  * Created by shishank
  * on 08/01/16.
  */
-public abstract class BaseActivity extends AppCompatActivity {
-
-    @Inject
-    ApiService apiService;
+public abstract class BaseActivity extends AppCompatActivity implements BaseContracts.BaseView {
 
     private FrameLayout contentFrame;
     protected FragmentTransactionHandler handler;
+    @Inject
+    ApiService apiService;
+
+    @Inject
+    BasePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_base);
-
-        BaseApplication.getInstance().getApiComponent().inject(this);
+        ((BaseApplication) getApplication()).getAppComponent()
+                .getBaseComponent(new BaseModule(this))
+                .inject(this);
 
         contentFrame = (FrameLayout) findViewById(R.id.base_container);
         handler = new FragmentTransactionHandler();

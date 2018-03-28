@@ -41,7 +41,7 @@ android {
     defaultConfig {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode incrementVersionTask.getCurrentVersionCode()
         versionName incrementVersionTask.getCurrentVersionName()
 
@@ -158,9 +158,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-
-    // design support
-    implementation "com.android.support:design:$supportLibVersion"
 
     // Lombok
     // https://projectlombok.org/setup/android.html

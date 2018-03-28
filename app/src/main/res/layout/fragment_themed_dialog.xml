@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -13,7 +12,7 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_5x2"/>
+        android:textSize="@dimen/text_5x2" />
 
     <TextView
         android:id="@+id/tv_message"
@@ -21,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_2x"
         android:minWidth="200dp"
-        android:textSize="@dimen/text_2x"/>
+        android:textSize="@dimen/text_2x" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,7 +38,7 @@
             android:gravity="center"
             android:text="@string/cancel"
             style="?android:attr/buttonBarButtonStyle"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <Button
             android:id="@+id/btn_ok"
@@ -50,7 +49,7 @@
             android:layout_marginLeft="@dimen/margin_2x"
             android:layout_marginRight="@dimen/margin_2x"
             style="?android:attr/buttonBarButtonStyle"
-            android:text="@string/ok"/>
+            android:text="@string/ok" />
 
     </LinearLayout>
 </LinearLayout>
