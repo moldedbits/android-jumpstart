@@ -10,4 +10,19 @@ public class ExampleAppActivity extends BaseDrawerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example_app);
     }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
 }

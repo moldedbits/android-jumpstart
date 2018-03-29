@@ -54,7 +54,7 @@ public class LoadingDialog extends android.support.v4.app.DialogFragment {
 
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        if(getDialog().getWindow() != null) {
+        if (getDialog().getWindow() != null) {
             WindowManager.LayoutParams params = getDialog().getWindow().getAttributes();
             params.height = WindowManager.LayoutParams.MATCH_PARENT;
             params.width = WindowManager.LayoutParams.MATCH_PARENT;

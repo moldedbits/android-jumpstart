@@ -24,7 +24,7 @@ public abstract class BaseDrawerActivity extends BaseActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        container = (FrameLayout)findViewById(R.id.drawer_container);
+        container = (FrameLayout) findViewById(R.id.drawer_container);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

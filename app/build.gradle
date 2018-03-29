@@ -33,7 +33,7 @@ task checkstyle(type: Checkstyle) {
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
 
     final API_URL_DEV = "https://www.google.com/";
     final API_URL_PROD = "https://www.google.com/";
@@ -41,7 +41,7 @@ android {
     defaultConfig {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode incrementVersionTask.getCurrentVersionCode()
         versionName incrementVersionTask.getCurrentVersionName()
 
@@ -159,9 +159,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
 
-    // design support
-    implementation "com.android.support:design:$supportLibVersion"
-
     // Lombok
     // https://projectlombok.org/setup/android.html
     compileOnly 'org.projectlombok:lombok:1.16.18'
@@ -172,6 +169,7 @@ dependencies {
 
     // Butterknife for view injection
     implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     // Dagger 2
     // Dagger 2 dependencies
