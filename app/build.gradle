@@ -32,16 +32,16 @@ task checkstyle(type: Checkstyle) {
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '26.0.2'
 
-    final API_URL_DEV = "https://www.google.com/";
-    final API_URL_PROD = "https://www.google.com/";
+    final API_URL_DEV = "https://www.google.com/"
+    final API_URL_PROD = "https://www.google.com/"
 
     defaultConfig {
         applicationId "com.moldedbits.android"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode incrementVersionTask.getCurrentVersionCode()
         versionName incrementVersionTask.getCurrentVersionName()
 
@@ -157,10 +157,7 @@ dependencies {
     // Use Retrofit for API interaction
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-
-    // design support
-    implementation "com.android.support:design:$supportLibVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
     // Lombok
     // https://projectlombok.org/setup/android.html
@@ -168,27 +165,28 @@ dependencies {
     annotationProcessor "org.projectlombok:lombok:1.16.18"
 
     // Timber for logging
-    implementation 'com.jakewharton.timber:timber:4.5.1'
+    implementation 'com.jakewharton.timber:timber:4.6.0'
 
     // Butterknife for view injection
     implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     // Dagger 2
     // Dagger 2 dependencies
-    implementation 'com.google.dagger:dagger:2.11'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    implementation 'com.google.dagger:dagger:2.14.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
 
     //Tests
     // Required -- JUnit 4 framework
     testImplementation 'junit:junit:4.12'
     androidTestImplementation "com.android.support:support-annotations:$supportLibVersion"
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test:rules:1.0.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
     // Optional -- Mockito framework
-    testImplementation 'org.mockito:mockito-core:2.10.0'
+    testImplementation 'org.mockito:mockito-core:2.15.0'
     // Optional -- UI testing with Espresso
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // RX Android
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
