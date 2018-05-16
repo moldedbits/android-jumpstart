@@ -1,5 +1,8 @@
-apply plugin: 'checkstyle'
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'checkstyle'
 
 checkstyle {
     toolVersion = '7.6.1'
@@ -159,23 +162,18 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
-    // Lombok
-    // https://projectlombok.org/setup/android.html
-    compileOnly 'org.projectlombok:lombok:1.16.18'
-    annotationProcessor "org.projectlombok:lombok:1.16.18"
-
     // Timber for logging
     implementation 'com.jakewharton.timber:timber:4.6.0'
 
     // Butterknife for view injection
     implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    kapt 'com.jakewharton:butterknife-compiler:8.8.1'
 
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
     // Dagger 2
     // Dagger 2 dependencies
     implementation 'com.google.dagger:dagger:2.14.1'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
-    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+    kapt 'com.google.dagger:dagger-compiler:2.14.1'
 
     //Tests
     // Required -- JUnit 4 framework
