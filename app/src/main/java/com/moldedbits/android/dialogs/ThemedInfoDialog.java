@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 import com.moldedbits.android.R;
 
 import butterknife.BindView;
@@ -45,8 +46,8 @@ public class ThemedInfoDialog extends DialogFragment {
 
     @BindView(R.id.btn_no)
     Button cancelButton;
-    boolean button;
 
+    boolean button;
 
     public static ThemedInfoDialog newInstance(String title, String message, String positiveText,
                                                String negativeText, boolean cancelButton) {
@@ -88,6 +89,9 @@ public class ThemedInfoDialog extends DialogFragment {
         button = args.getBoolean(KEY_SHOW_CANCEL_BUTTON);
         if (button) {
             cancelButton.setVisibility(View.VISIBLE);
+        }
+        if (titleTv.getText().toString().isEmpty()) {
+            titleTv.setVisibility(View.GONE);
         }
 
         if (TextUtils.isEmpty(args.getString(KEY_POSITIVE_BUTTON_TEXT))) {
