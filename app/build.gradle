@@ -33,7 +33,7 @@ task checkstyle(type: Checkstyle) {
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
 
     final API_URL_DEV = "https://www.google.com/"
     final API_URL_PROD = "https://www.google.com/"
@@ -186,7 +186,7 @@ dependencies {
     // Optional -- Mockito framework
     testImplementation 'org.mockito:mockito-core:2.15.0'
     // Optional -- UI testing with Espresso
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // RX Android
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
